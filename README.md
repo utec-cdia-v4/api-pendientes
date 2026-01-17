@@ -27,12 +27,10 @@ Este proyecto fue **generado con Perplexity AI** a partir del siguiente prompt (
 
 --- 
 
-## BackEnd
+## BackEnd - Instrucciones
 
-## Instalar dependencias:
+### Instalar dependencias:
 pip install fastapi uvicorn sqlalchemy pydantic
 
-## Ejecutar el backend:
+### Ejecutar el backend:
 uvicorn main:app --reload
-
-
