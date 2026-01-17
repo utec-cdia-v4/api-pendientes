@@ -13,11 +13,7 @@ Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="API Pendientes")
 
-origins = [
-    "http://localhost",
-    "http://127.0.0.1",
-    # agrega aquí el origen donde sirvas el index.html si usas algún servidor
-]
+origins = ['*'] # Permite que el Api Rest se consuma desde cualquier origen
 
 app.add_middleware(
     CORSMiddleware,
