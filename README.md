@@ -33,4 +33,4 @@ Este proyecto fue **generado con Perplexity AI** a partir del siguiente prompt (
 pip install fastapi uvicorn sqlalchemy pydantic
 
 ### Ejecutar el backend:
-uvicorn main:app --reload
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
