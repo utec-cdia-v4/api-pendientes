@@ -1,0 +1,222 @@
+{
+  "info": {
+    "_postman_id": "b2c8f0b4-9f5d-4a3b-8d2e-123456789abc",
+    "name": "API Pendientes - FastAPI CRUD",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Colección para probar el CRUD de la API de pendientes desarrollada con FastAPI y SQLite.\n\nIncluye operaciones para listar, crear, actualizar estado y eliminar pendientes.\n\nBase URL: http://127.0.0.1:8000"
+  },
+  "item": [
+    {
+      "name": "01 - Listar pendientes",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/pendientes",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pendientes"
+          ]
+        },
+        "description": "Obtiene la lista completa de pendientes ordenados por fecha de creación descendente."
+      },
+      "response": []
+    },
+    {
+      "name": "02 - Crear pendiente (alta)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"descripcion\": \"Estudiar FastAPI\",\n  \"importancia\": \"alta\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/pendientes",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pendientes"
+          ]
+        },
+        "description": "Crea un nuevo pendiente con importancia alta."
+      },
+      "response": []
+    },
+    {
+      "name": "03 - Crear pendiente (media)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"descripcion\": \"Preparar clase de Arquitectura Empresarial\",\n  \"importancia\": \"media\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/pendientes",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pendientes"
+          ]
+        },
+        "description": "Crea un nuevo pendiente con importancia media."
+      },
+      "response": []
+    },
+    {
+      "name": "04 - Crear pendiente (baja)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"descripcion\": \"Revisar noticias de tecnología\",\n  \"importancia\": \"baja\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/pendientes",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pendientes"
+          ]
+        },
+        "description": "Crea un nuevo pendiente con importancia baja."
+      },
+      "response": []
+    },
+    {
+      "name": "05 - Marcar pendiente como completado",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"estado\": \"completado\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/pendientes/{{pendiente_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pendientes",
+            "{{pendiente_id}}"
+          ]
+        },
+        "description": "Actualiza el estado de un pendiente a completado. Esto hará que el backend registre la fecha de atención."
+      },
+      "response": []
+    },
+    {
+      "name": "06 - Marcar pendiente como pendiente",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"estado\": \"pendiente\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/pendientes/{{pendiente_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pendientes",
+            "{{pendiente_id}}"
+          ]
+        },
+        "description": "Actualiza el estado de un pendiente a pendiente (limpia la fecha de atención)."
+      },
+      "response": []
+    },
+    {
+      "name": "07 - Actualizar descripción/importancia",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"descripcion\": \"Estudiar FastAPI y preparar demo para clase\",\n  \"importancia\": \"alta\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/pendientes/{{pendiente_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pendientes",
+            "{{pendiente_id}}"
+          ]
+        },
+        "description": "Actualiza la descripción y/o importancia de un pendiente existente."
+      },
+      "response": []
+    },
+    {
+      "name": "08 - Eliminar pendiente",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/pendientes/{{pendiente_id}}",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "pendientes",
+            "{{pendiente_id}}"
+          ]
+        },
+        "description": "Elimina un pendiente por su identificador."
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://127.0.0.1:8000"
+    },
+    {
+      "key": "pendiente_id",
+      "value": "1"
+    }
+  ]
+}
